@@ -70,14 +70,13 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 // Get all messages
 export const getMessages = async (): Promise<Message[]> => {
-  await delay(800) // Simulate network delay
+  await delay(100) // Reduced from 800
   return [...mockMessages]
 }
 
 // Get message by ID
 export const getMessageById = async (id: string): Promise<Message> => {
-  await delay(500) // Simulate network delay
-
+  await delay(75) // Reduced from 500
   const message = mockMessages.find((m) => m.id === id)
 
   if (!message) {
@@ -89,7 +88,7 @@ export const getMessageById = async (id: string): Promise<Message> => {
 
 // Send a contact message
 export const sendContactMessage = async (messageData: Omit<Message, "id" | "read" | "createdAt">): Promise<Message> => {
-  await delay(1000) // Simulate network delay
+  await delay(150) // Reduced from 1000
 
   const newMessage: Message = {
     id: generateId(),
@@ -104,7 +103,7 @@ export const sendContactMessage = async (messageData: Omit<Message, "id" | "read
 
 // Mark message as read
 export const markMessageAsRead = async (id: string): Promise<Message> => {
-  await delay(500) // Simulate network delay
+  await delay(75) // Reduced from 500
 
   const index = mockMessages.findIndex((m) => m.id === id)
 
@@ -118,7 +117,7 @@ export const markMessageAsRead = async (id: string): Promise<Message> => {
 
 // Delete a message
 export const deleteMessage = async (id: string): Promise<void> => {
-  await delay(800) // Simulate network delay
+  await delay(100) // Reduced from 800
 
   const index = mockMessages.findIndex((m) => m.id === id)
 
