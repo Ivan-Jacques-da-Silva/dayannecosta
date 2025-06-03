@@ -34,7 +34,7 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 // Login user
 export const loginUser = async (email: string, password: string): Promise<User> => {
-  await delay(800) // Simulate network delay
+  await delay(100) // Reduced from 800
 
   const user = mockUsers.find((u) => u.email === email && u.password === password)
 
@@ -51,7 +51,7 @@ export const loginUser = async (email: string, password: string): Promise<User> 
 
 // Register user
 export const registerUser = async (name: string, email: string, password: string): Promise<void> => {
-  await delay(1000) // Simulate network delay
+  await delay(150) // Reduced from 1000
 
   // Check if email already exists
   if (mockUsers.some((u) => u.email === email)) {
@@ -72,7 +72,7 @@ export const registerUser = async (name: string, email: string, password: string
 
 // Get current user
 export const getCurrentUser = async (): Promise<User> => {
-  await delay(300) // Simulate network delay
+  await delay(50) // Reduced from 300
 
   const userJson = localStorage.getItem("user")
 
@@ -89,6 +89,6 @@ export const getCurrentUser = async (): Promise<User> => {
 
 // Logout user
 export const logoutUser = async (): Promise<void> => {
-  await delay(300) // Simulate network delay
+  await delay(50) // Reduced from 300
   localStorage.removeItem("user")
 }
