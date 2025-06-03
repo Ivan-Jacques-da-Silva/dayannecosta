@@ -378,13 +378,13 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 // Get all properties
 export const getProperties = async (): Promise<Property[]> => {
-  await delay(800) // Simulate network delay
+  await delay(100) // Reduced from 800
   return [...mockProperties]
 }
 
 // Get property by ID
 export const getPropertyById = async (id: string): Promise<Property> => {
-  await delay(500) // Simulate network delay
+  await delay(75) // Reduced from 500
   const property = mockProperties.find((p) => p.id === id)
 
   if (!property) {
@@ -396,7 +396,7 @@ export const getPropertyById = async (id: string): Promise<Property> => {
 
 // Add a new property
 export const addProperty = async (property: Omit<Property, "id" | "createdAt">): Promise<Property> => {
-  await delay(1000) // Simulate network delay
+  await delay(150) // Reduced from 1000
 
   const newProperty: Property = {
     id: generateId(),
@@ -410,7 +410,7 @@ export const addProperty = async (property: Omit<Property, "id" | "createdAt">):
 
 // Update a property
 export const updateProperty = async (id: string, updates: Partial<Property>): Promise<Property> => {
-  await delay(1000) // Simulate network delay
+  await delay(150) // Reduced from 1000
 
   const index = mockProperties.findIndex((p) => p.id === id)
 
@@ -429,7 +429,7 @@ export const updateProperty = async (id: string, updates: Partial<Property>): Pr
 
 // Delete a property
 export const deleteProperty = async (id: string): Promise<void> => {
-  await delay(800) // Simulate network delay
+  await delay(100) // Reduced from 800
 
   const index = mockProperties.findIndex((p) => p.id === id)
 
