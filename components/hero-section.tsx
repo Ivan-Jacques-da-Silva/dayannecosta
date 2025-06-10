@@ -11,7 +11,8 @@ export default function HeroSection() {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/placeholder.svg?height=1200&width=2000')" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
 
       <div className="relative h-full flex flex-col justify-center px-6 md:px-12">
