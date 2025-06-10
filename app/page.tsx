@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { getHighlightedProperties } from "@/api/api"
 import PropertyCard from "@/components/property-card"
+import BuySellSection from "@/components/buy-sell-section"
 import { ArrowRight, Building, Home, MapPin } from "lucide-react"
 
 export default function HomePage() {
@@ -296,38 +297,10 @@ export default function HomePage() {
           </div>
         </motion.div>
 
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.0 }}
-          className="my-16"
-        >
-          <div className="relative rounded-lg overflow-hidden">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: "url('/placeholder.svg?height=600&width=1200')" }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40" />
-            </div>
+        </div>
 
-            <div className="relative py-16 px-8 md:px-16 flex flex-col items-center text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Find Your Dream Home?</h2>
-              <p className="text-white/90 mb-8 max-w-2xl">
-                Let us help you navigate Miami's competitive real estate market and find the perfect property
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90">
-                  Browse Properties
-                </Button>
-                <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
-                  Contact Us
-                </Button>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </div>
+      {/* Buy/Sell Section */}
+      <BuySellSection />
     </div>
   )
 }

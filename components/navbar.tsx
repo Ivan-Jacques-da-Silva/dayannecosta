@@ -16,6 +16,13 @@ import { useAuth } from "@/context/auth-context"
 import { Heart, LogOut, Menu, User, UserCog } from "lucide-react"
 import { ModeToggle } from "./mode-toggle"
 
+// Add this interface for navigation with actions
+interface NavLink {
+  href: string
+  label: string
+  action?: () => void
+}
+
 export default function Navbar() {
   const pathname = usePathname()
   const { user, logout, isAdmin } = useAuth()
@@ -42,8 +49,8 @@ export default function Navbar() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/properties", label: "Search Properties" },
-    { href: "/properties?status=For Sale", label: "Buy" },
-    { href: "/properties?status=For Rent", label: "Sell" },
+    { href: "#buy-sell", label: "Buy" },
+    { href: "#buy-sell", label: "Sell" },
     { href: "/about", label: "Advantages" },
     { href: "/contact", label: "About" },
   ]
@@ -63,17 +70,43 @@ export default function Navbar() {
           </div>
 
           <nav className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  pathname === link.href ? "text-primary" : "text-muted-foreground"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              if (link.label === "Buy" || link.label === "Sell") {
+                return (
+                  <button
+                    key={link.label}
+                    onClick={() => {
+                      // Scroll to buy-sell section and trigger form
+                      const buySellSection = document.getElementById('buy-sell')
+                      if (buySellSection) {
+                        buySellSection.scrollIntoView({ behavior: 'smooth' })
+                        // Trigger the form based on the button clicked
+                        const event = new CustomEvent('openBuySellForm', { 
+                          detail: { type: link.label.toLowerCase() } 
+                        })
+                        window.dispatchEvent(event)
+                      }
+                    }}
+                    className={`text-sm font-medium transition-colors hover:text-primary ${
+                      pathname === link.href ? "text-primary" : "text-muted-foreground"
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                )
+              }
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                    pathname === link.href ? "text-primary" : "text-muted-foreground"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
           </nav>
 
           <div className="flex items-center gap-2">
@@ -147,17 +180,43 @@ export default function Navbar() {
                     <span className="text-primary">DAYANNE COSTA</span>
                   </Link>
                   <nav className="grid gap-4">
-                    {navLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className={`text-sm font-medium transition-colors hover:text-primary ${
-                          pathname === link.href ? "text-primary" : "text-muted-foreground"
-                        }`}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
+                    {navLinks.map((link) => {
+                      if (link.label === "Buy" || link.label === "Sell") {
+                        return (
+                          <button
+                            key={link.label}
+                            onClick={() => {
+                              // Scroll to buy-sell section and trigger form
+                              const buySellSection = document.getElementById('buy-sell')
+                              if (buySellSection) {
+                                buySellSection.scrollIntoView({ behavior: 'smooth' })
+                                // Trigger the form based on the button clicked
+                                const event = new CustomEvent('openBuySellForm', { 
+                                  detail: { type: link.label.toLowerCase() } 
+                                })
+                                window.dispatchEvent(event)
+                              }
+                            }}
+                            className={`text-sm font-medium transition-colors hover:text-primary text-left ${
+                              pathname === link.href ? "text-primary" : "text-muted-foreground"
+                            }`}
+                          >
+                            {link.label}
+                          </button>
+                        )
+                      }
+                      return (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className={`text-sm font-medium transition-colors hover:text-primary ${
+                            pathname === link.href ? "text-primary" : "text-muted-foreground"
+                          }`}
+                        >
+                          {link.label}
+                        </Link>
+                      )
+                    })}
                     {user && (
                       <>
                         {isAdmin ? (
