@@ -25,6 +25,39 @@ interface FormData {
   comments: string
 }
 
+const propertyTypeOptions = [
+  { value: "condo", label: "CONDO" },
+  { value: "single-family", label: "SINGLE FAMILY HOME" },
+  { value: "townhouse", label: "TOWNHOUSE" },
+]
+
+const priceRangeOptions = [
+  { value: "below-1m", label: "BELOW $1M" },
+  { value: "1m-3m", label: "$1M TO $3M" },
+  { value: "3m-5m", label: "$3M TO $5M" },
+  { value: "5m-plus", label: "$5M+" },
+]
+
+const bedroomOptions = [
+  { value: "1", label: "1" },
+  { value: "2", label: "2" },
+  { value: "3", label: "3" },
+  { value: "4+", label: "4+" },
+]
+
+const bathroomOptions = [
+  { value: "1", label: "1" },
+  { value: "2", label: "2" },
+  { value: "3", label: "3" },
+  { value: "4+", label: "4+" },
+]
+
+const timelineOptions = [
+  { value: "now", label: "NOW" },
+  { value: "soon", label: "SOON" },
+  { value: "later", label: "LATER" },
+]
+
 export default function BuySellPage() {
   const { toast } = useToast()
   const router = useRouter()
@@ -43,39 +76,6 @@ export default function BuySellPage() {
   })
 
   const totalSteps = 7
-
-  const propertyTypeOptions = [
-    { value: "condo", label: "CONDO" },
-    { value: "single-family", label: "SINGLE FAMILY HOME" },
-    { value: "townhouse", label: "TOWNHOUSE" },
-  ]
-
-  const getPriceRangeOptions = () => [
-    { value: "below-1m", label: "BELOW $1M" },
-    { value: "1m-3m", label: "$1M TO $3M" },
-    { value: "3m-5m", label: "$3M TO $5M" },
-    { value: "5m-plus", label: "$5M+" },
-  ]
-
-  const bedroomOptions = [
-    { value: "1", label: "1" },
-    { value: "2", label: "2" },
-    { value: "3", label: "3" },
-    { value: "4+", label: "4+" },
-  ]
-
-  const bathroomOptions = [
-    { value: "1", label: "1" },
-    { value: "2", label: "2" },
-    { value: "3", label: "3" },
-    { value: "4+", label: "4+" },
-  ]
-
-  const getTimelineOptions = () => [
-    { value: "now", label: "NOW" },
-    { value: "soon", label: "SOON" },
-    { value: "later", label: "LATER" },
-  ]
 
   const handleOptionSelect = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
@@ -98,7 +98,6 @@ export default function BuySellPage() {
   }
 
   const handleSubmit = () => {
-    // Validate required fields
     if (!formData.email || !formData.name || !formData.phone || formData.phone === "+55 ") {
       toast({
         title: "Error",
@@ -108,13 +107,11 @@ export default function BuySellPage() {
       return
     }
 
-    // Simulate form submission
     toast({
       title: "Success!",
       description: `Your ${formData.type === "buy" ? "buying" : "selling"} form has been submitted successfully. We'll contact you soon.`,
     })
 
-    // Redirect to home page
     router.push("/")
   }
 
@@ -200,7 +197,7 @@ export default function BuySellPage() {
               {formData.type === "buy" ? "What's Your Price Range?" : "Expected Selling Price?"}
             </h2>
             <div className="grid gap-4">
-              {getPriceRangeOptions().map((option) => (
+              {priceRangeOptions.map((option) => (
                 <Button
                   key={option.value}
                   variant={formData.priceRange === option.value ? "default" : "outline"}
@@ -271,7 +268,7 @@ export default function BuySellPage() {
               {formData.type === "buy" ? "Timeline To Purchase" : "Timeline To Sell"}
             </h2>
             <div className="grid gap-4">
-              {getTimelineOptions().map((option) => (
+              {timelineOptions.map((option) => (
                 <Button
                   key={option.value}
                   variant={formData.timeline === option.value ? "default" : "outline"}
@@ -356,11 +353,6 @@ export default function BuySellPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-20"
-        style={{ backgroundImage: "url('/placeholder.svg?height=1200&width=2000')" }}
-      />
-      
       <div className="relative container mx-auto px-4 py-8 flex items-center justify-center min-h-screen">
         <Card className="w-full max-w-2xl bg-gradient-to-br from-slate-900/90 via-slate-800/90 to-slate-900/90 border-slate-700 shadow-2xl backdrop-blur-sm">
           <CardContent className="p-8">

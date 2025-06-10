@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useEffect } from "react"
@@ -16,12 +17,13 @@ import { useAuth } from "@/context/auth-context"
 import { Heart, LogOut, Menu, User, UserCog } from "lucide-react"
 import { ModeToggle } from "./mode-toggle"
 
-// Add this interface for navigation with actions
-interface NavLink {
-  href: string
-  label: string
-  action?: () => void
-}
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/properties", label: "Search Properties" },
+  { href: "/buy-sell", label: "Buy/Sell" },
+  { href: "/about", label: "Advantages" },
+  { href: "/contact", label: "About" },
+]
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -46,14 +48,6 @@ export default function Navbar() {
     router.push("/")
   }
 
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/properties", label: "Search Properties" },
-    { href: "/buy-sell", label: "Buy/Sell" },
-    { href: "/about", label: "Advantages" },
-    { href: "/contact", label: "About" },
-  ]
-
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
@@ -62,11 +56,9 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-              <span className="text-primary">DAYANNE COSTA</span>
-            </Link>
-          </div>
+          <Link href="/" className="flex items-center gap-2 font-bold text-xl">
+            <span className="text-primary">DAYANNE COSTA</span>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
@@ -96,7 +88,6 @@ export default function Navbar() {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="icon" className="rounded-full">
                     <User className="w-5 h-5" />
-                    <span className="sr-only">User menu</span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
@@ -134,9 +125,7 @@ export default function Navbar() {
               </DropdownMenu>
             ) : (
               <Button asChild variant="ghost" size="sm">
-                <Link href="/login" className="flex items-center gap-2">
-                  <span>Login | Register</span>
-                </Link>
+                <Link href="/login">Login | Register</Link>
               </Button>
             )}
 
@@ -144,7 +133,6 @@ export default function Navbar() {
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="md:hidden">
                   <Menu className="w-5 h-5" />
-                  <span className="sr-only">Toggle menu</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right">
