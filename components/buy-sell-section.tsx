@@ -25,12 +25,12 @@ export default function BuySellSection() {
 
   return (
     <>
-      <section id="buy-sell" className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
+      {/* <section id="buy-sell" className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: "url('/placeholder.svg?height=1200&width=2000')" }}
         />
-      </section>
+      </section> */}
 
       {/* Form Modal */}
       {showForm && (

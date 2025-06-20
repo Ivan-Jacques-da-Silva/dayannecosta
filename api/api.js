@@ -14,11 +14,9 @@ const properties = [
     description:
       "Stunning 2 bed, 2 bath condo in the heart of Brickell with breathtaking views of Biscayne Bay and the Miami skyline. This luxury unit features floor-to-ceiling windows, a gourmet kitchen with stainless steel appliances, and a spacious balcony perfect for entertaining. The Icon Brickell offers world-class amenities including a two-acre pool deck, state-of-the-art fitness center, and 24-hour concierge service. Walking distance to Brickell City Centre, restaurants, and nightlife.",
     images: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "/img/A11680845_1.jpeg",
+      "/img/A11680845_1.jpeg",
+      "/img/A11680845_1.jpeg",
     ],
     videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     realtorName: "Jane Smith",
@@ -47,9 +45,9 @@ const properties = [
     description:
       "Luxurious 3 bedroom condo in the prestigious 1000 Museum building designed by Zaha Hadid. Enjoy panoramic views of Biscayne Bay and Miami's skyline from this high-floor unit featuring premium finishes, smart home technology, and European appliances. Building amenities include a helipad, sky lounge, aquatic center, and private security.",
     images: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "/img/A11618502_1.jpeg",
+      "/img/A11618502_1.jpeg",
+      "/img/A11618502_1.jpeg",
     ],
     videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     realtorName: "John Davis",
@@ -77,9 +75,9 @@ const properties = [
     description:
       "Modern 1-bedroom luxury condo with stunning bay views in North Bay Village. Features contemporary finishes, floor-to-ceiling windows, and a private balcony overlooking Biscayne Bay. The building offers resort-style amenities including infinity pool, fitness center, and rooftop terrace. Just minutes from South Beach and Downtown Miami.",
     images: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "/img/A11686212_1.jpeg",
+      "/img/A11686212_1.jpeg",
+      "/img/A11686212_1.jpeg",
     ],
     videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     realtorName: "Carlos Rodriguez",
@@ -107,10 +105,9 @@ const properties = [
     description:
       "Stunning waterfront single-family home in the heart of Coconut Grove. This elegant property features 4 spacious bedrooms, gourmet kitchen with marble countertops, and a private dock with bay access. Beautifully landscaped grounds with pool and outdoor entertainment area. Walking distance to CocoWalk and Grove restaurants.",
     images: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "/img/A11686212_1.jpeg",
+      "/img/A11686212_1.jpeg",
+      "/img/A11686212_1.jpeg",
     ],
     videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     realtorName: "Maria Santos",
@@ -138,11 +135,11 @@ const properties = [
     description:
       "Exclusive penthouse on iconic Ocean Drive with unobstructed ocean views. This luxury residence features 3 bedrooms, private rooftop terrace, and premium finishes throughout. Located in the heart of South Beach's Art Deco District, steps from world-class dining and nightlife. Building amenities include valet, concierge, and beach service.",
     images: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "/img/A11713458_1.jpeg",
+      "/img/A11713458_1.jpeg",
+      "/img/A11713458_1.jpeg",
+      "/img/A11713458_1.jpeg",
+      "/img/A11713458_1.jpeg",
     ],
     videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     realtorName: "Alexandra Chen",
@@ -170,9 +167,9 @@ const properties = [
     description:
       "Charming 2-bedroom condo in the prestigious Coral Gables area. Recently renovated with modern kitchen, updated bathrooms, and hardwood floors throughout. Building features pool, gym, and 24-hour security. Close to Miracle Mile shopping and dining, University of Miami, and excellent schools.",
     images: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "/img/A11713458_1.jpeg",
+      "/img/A11713458_1.jpeg",
+      "/img/A11713458_1.jpeg",
     ],
     videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     realtorName: "Roberto Silva",

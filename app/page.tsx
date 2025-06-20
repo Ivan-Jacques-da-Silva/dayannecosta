@@ -15,6 +15,14 @@ import { getHighlightedProperties } from "@/api/api"
 import PropertyCard from "@/components/property-card"
 import BuySellSection from "@/components/buy-sell-section"
 import { ArrowRight, Building, Home, MapPin } from "lucide-react"
+import homePageImage from "@/public/img/A11686212_1.jpeg"
+import imagemMulher from "@/public/img/mulher.png"
+import imgBrickell from "@/public/img/brickell.jpeg"
+import imgMiamiBeach from "@/public/img/miami-beach.jpeg"
+import imgCoconutGrove from "@/public/img/coconut-grove.jpeg"
+import imgCoralGables from "@/public/img/coral-gables.jpeg"
+
+
 
 export default function HomePage() {
   const [properties, setProperties] = useState<any[]>([])
@@ -44,57 +52,71 @@ export default function HomePage() {
       <div className="relative h-[80vh] min-h-[600px]">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/placeholder.svg?height=1200&width=2000')" }}
+          style={{ backgroundImage: `url(${homePageImage.src})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30" />
         </div>
 
-        <div className="relative container mx-auto px-4 h-full flex flex-col justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-3xl"
-          >
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Find Your Dream Home in Miami</h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8">
-              Discover luxury properties in Miami's most desirable neighborhoods
-            </p>
-          </motion.div>
+        <div className="relative container mx-auto px-4 h-full flex items-center justify-between">
+          <div className="flex-1">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="max-w-2xl"
+            >
+              <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
+                Find Your Dream Home in Miami
+              </h1>
+              <p className="text-lg md:text-xl text-white/90 mb-8">
+                Discover luxury properties in Miami's most desirable neighborhoods
+              </p>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="mt-8 bg-background/80 backdrop-blur-md p-6 rounded-lg max-w-4xl"
-          >
-            <Tabs defaultValue="buy" className="w-full">
-              <TabsList className="grid grid-cols-3 mb-6">
-                <TabsTrigger value="buy">Buy</TabsTrigger>
-                <TabsTrigger value="rent">Rent</TabsTrigger>
-                <TabsTrigger value="sell">Sell</TabsTrigger>
-              </TabsList>
-              <TabsContent value="buy" className="space-y-4">
-                <div className="flex flex-col md:flex-row gap-4">
-                  <Input placeholder="Enter an address, neighborhood, city, or ZIP code" className="flex-1" />
-                  <Button>Search Properties</Button>
-                </div>
-              </TabsContent>
-              <TabsContent value="rent" className="space-y-4">
-                <div className="flex flex-col md:flex-row gap-4">
-                  <Input placeholder="Enter an address, neighborhood, city, or ZIP code" className="flex-1" />
-                  <Button>Find Rentals</Button>
-                </div>
-              </TabsContent>
-              <TabsContent value="sell" className="space-y-4">
-                <div className="flex flex-col md:flex-row gap-4">
-                  <Input placeholder="Enter your property address" className="flex-1" />
-                  <Button>Get Estimate</Button>
-                </div>
-              </TabsContent>
-            </Tabs>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="mt-8 bg-background/80 backdrop-blur-md p-6 rounded-lg max-w-4xl"
+            >
+              <Tabs defaultValue="buy" className="w-full">
+                <TabsList className="grid grid-cols-3 mb-6">
+                  <TabsTrigger value="buy">Buy</TabsTrigger>
+                  <TabsTrigger value="rent">Rent</TabsTrigger>
+                  <TabsTrigger value="sell">Sell</TabsTrigger>
+                </TabsList>
+                <TabsContent value="buy" className="space-y-4">
+                  <div className="flex flex-col md:flex-row gap-4">
+                    <Input placeholder="Enter an address, neighborhood, city, or ZIP code" className="flex-1" />
+                    <Button>Search Properties</Button>
+                  </div>
+                </TabsContent>
+                <TabsContent value="rent" className="space-y-4">
+                  <div className="flex flex-col md:flex-row gap-4">
+                    <Input placeholder="Enter an address, neighborhood, city, or ZIP code" className="flex-1" />
+                    <Button>Find Rentals</Button>
+                  </div>
+                </TabsContent>
+                <TabsContent value="sell" className="space-y-4">
+                  <div className="flex flex-col md:flex-row gap-4">
+                    <Input placeholder="Enter your property address" className="flex-1" />
+                    <Button>Get Estimate</Button>
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </motion.div>
+          </div>
+
+          <Image
+            src={imagemMulher}
+            alt="Agente"
+            width={400}
+            height={500}
+            className="hidden md:block absolute bottom-0 right-0 z-20 object-contain"
+          />
+
         </div>
+        s
       </div>
 
       {/* Featured Listings */}
@@ -169,11 +191,12 @@ export default function HomePage() {
             <Card className="bg-card/60 backdrop-blur-sm overflow-hidden group">
               <div className="aspect-square relative">
                 <Image
-                  src="/placeholder.svg?height=300&width=300"
+                  src={imgBrickell}
                   alt="Brickell"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent group-hover:from-black/80 transition-colors duration-300" />
                 <div className="absolute bottom-0 left-0 p-4 w-full">
                   <div className="flex items-center gap-2 text-white mb-1">
@@ -188,11 +211,12 @@ export default function HomePage() {
             <Card className="bg-card/60 backdrop-blur-sm overflow-hidden group">
               <div className="aspect-square relative">
                 <Image
-                  src="/placeholder.svg?height=300&width=300"
+                  src={imgMiamiBeach}
                   alt="Miami Beach"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent group-hover:from-black/80 transition-colors duration-300" />
                 <div className="absolute bottom-0 left-0 p-4 w-full">
                   <div className="flex items-center gap-2 text-white mb-1">
@@ -207,11 +231,12 @@ export default function HomePage() {
             <Card className="bg-card/60 backdrop-blur-sm overflow-hidden group">
               <div className="aspect-square relative">
                 <Image
-                  src="/placeholder.svg?height=300&width=300"
+                  src={imgCoconutGrove}
                   alt="Coconut Grove"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent group-hover:from-black/80 transition-colors duration-300" />
                 <div className="absolute bottom-0 left-0 p-4 w-full">
                   <div className="flex items-center gap-2 text-white mb-1">
@@ -226,11 +251,12 @@ export default function HomePage() {
             <Card className="bg-card/60 backdrop-blur-sm overflow-hidden group">
               <div className="aspect-square relative">
                 <Image
-                  src="/placeholder.svg?height=300&width=300"
+                  src={imgCoralGables}
                   alt="Coral Gables"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent group-hover:from-black/80 transition-colors duration-300" />
                 <div className="absolute bottom-0 left-0 p-4 w-full">
                   <div className="flex items-center gap-2 text-white mb-1">
@@ -297,7 +323,7 @@ export default function HomePage() {
           </div>
         </motion.div>
 
-        </div>
+      </div>
 
       {/* Buy/Sell Section */}
       <BuySellSection />

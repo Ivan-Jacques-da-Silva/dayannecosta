@@ -2,6 +2,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
+import logo from "@/public/img/logo-dcBlack.png"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -21,8 +23,8 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/properties", label: "Search Properties" },
   { href: "/buy-sell", label: "Buy/Sell" },
-  { href: "/about", label: "Advantages" },
-  { href: "/contact", label: "About" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ]
 
 export default function Navbar() {
@@ -50,14 +52,13 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled || isAdminPage || isDashboardPage ? "bg-background/80 backdrop-blur-md border-b" : "bg-transparent"
-      }`}
+      className={`sticky top-0 z-50 transition-all duration-300 ${scrolled || isAdminPage || isDashboardPage ? "bg-background/80 backdrop-blur-md border-b" : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <span className="text-primary">DAYANNE COSTA</span>
+          <Link href="/" className="flex items-center py-2">
+            <Image src={logo} alt="Logo" width={100} height={40} className="h-10 w-auto" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
@@ -65,9 +66,8 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  pathname === link.href ? "text-primary" : "text-muted-foreground"
-                }`}
+                className={`text-sm font-medium transition-colors hover:text-primary ${pathname === link.href ? "text-primary" : "text-muted-foreground"
+                  }`}
               >
                 {link.label}
               </Link>
@@ -76,7 +76,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-2">
             <div className="hidden md:flex items-center text-sm text-muted-foreground mr-4">
-              <span className="hidden lg:inline">dayanne.costa@compass.com</span>
+              <span className="hidden lg:inline">dayannecosta@compass.com</span>
               <span className="hidden lg:inline mx-2">|</span>
               <span>+1 (646) 598-3588</span>
             </div>
@@ -145,9 +145,8 @@ export default function Navbar() {
                       <Link
                         key={link.href}
                         href={link.href}
-                        className={`text-sm font-medium transition-colors hover:text-primary ${
-                          pathname === link.href ? "text-primary" : "text-muted-foreground"
-                        }`}
+                        className={`text-sm font-medium transition-colors hover:text-primary ${pathname === link.href ? "text-primary" : "text-muted-foreground"
+                          }`}
                       >
                         {link.label}
                       </Link>
@@ -173,7 +172,7 @@ export default function Navbar() {
                     )}
                   </nav>
                   <div className="text-sm text-muted-foreground">
-                    <p>dayanne.costa@compass.com</p>
+                    <p>dayannecosta@compass.com</p>
                     <p>+1 (646) 598-3588</p>
                   </div>
                 </div>
